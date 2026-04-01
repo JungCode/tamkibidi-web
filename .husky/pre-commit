@@ -21,11 +21,11 @@ git_diff=$(git diff --cached --name-only --diff-filter=ACM | grep -E "$EXTS" || 
 
 # Skip Husky if no relevant files are found
 if [ -z "$git_diff" ]; then
-  echo -e "${YELLOW}⏩ No relevant files staged. Skipping pre-commit checks.${NC}"
+  printf "${YELLOW}⏩ No relevant files staged. Skipping pre-commit checks.${NC}\n"
   exit 0
 fi
 
-echo -e "${CYAN}🏗️  Validating changes before commit...${NC}\n"
+printf "${CYAN}🏗️  Validating changes before commit...${NC}\n"
 
 # Helper function to execute steps with status tracking
 run_step() {
@@ -33,12 +33,12 @@ run_step() {
   local step_name=$2
   local command=$3
 
-  echo -e "${BOLD}[$step_num/4]${NC} ${step_name}..."
+  printf "${BOLD}[$step_num/4]${NC} ${step_name}...\n"
   if eval "$command"; then
-    echo -e "   ${GREEN}✓ Success${NC}"
+    printf "   ${GREEN}✓ Success${NC}\n"
   else
-    echo -e "   ${RED}✗ Failed${NC}"
-    echo -e "\n${RED}${BOLD}ABORTING COMMIT:${NC} Please fix the errors above."
+    printf "   ${RED}✗ Failed${NC}\n"
+    printf "\n${RED}${BOLD}ABORTING COMMIT:${NC} Please fix the errors above.\n"
     exit 1
   fi
 }
@@ -55,15 +55,15 @@ run_step "2" "Linting project" "pnpm lint-staged"
 run_step "3" "Type checking" "pnpm check-types"
 
 # Step 4: Re-stage modified files after formatting
-echo -e "${BOLD}[4/4]${NC} Updating staged changes..."
-echo "$git_diff" | xargs git add
-echo -e "   ${GREEN}✓ Files updated${NC}"
+printf "${BOLD}[4/4]${NC} Updating staged changes...\n"
+printf "$git_diff" | xargs git add
+printf "   ${GREEN}✓ Files updated${NC}\n"
 
 # --- Summary ---
 end_time=$(date +%s)
 runtime=$((end_time - start_time))
 
-echo -e "\n${BOLD}--------------------------------${NC}"
-echo -e "${GREEN}✔${NC} ${BOLD}Pre-commit checks passed!${NC}"
-echo -e "⏱️  Execution time: ${CYAN}${runtime}s${NC}"
-echo -e "${BOLD}--------------------------------${NC}\n"
+printf "\n${BOLD}--------------------------------${NC}\n"
+printf "${GREEN}✔${NC} ${BOLD}Pre-commit checks passed!${NC}\n"
+printf "⏱️  Execution time: ${CYAN}${runtime}s${NC}\n"
+printf "${BOLD}--------------------------------${NC}\n"
