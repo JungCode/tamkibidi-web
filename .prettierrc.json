@@ -1,0 +1,17 @@
+{
+  "trailingComma": "all",
+  "tabWidth": 2,
+  "semi": true,
+  "bracketSpacing": true,
+  "bracketSameLine": false,
+  "endOfLine": "lf",
+  "arrowParens": "always",
+  "singleQuote": true,
+  "printWidth": 80,
+  "useTabs": false,
+  "tailwindFunctions": ["clsx", "tw"],
+  "importOrder": ["^react$", "<THIRD_PARTY_MODULES>", "^@/", "^[./]"],
+  "importOrderSeparation": false,
+  "importOrderSortSpecifiers": false,
+  "plugins": ["prettier-plugin-tailwindcss"]
+}
