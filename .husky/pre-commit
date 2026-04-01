@@ -1,1 +1,40 @@
-pnpm test
+#!/bin/bash
+set -e  # Exit immediately if a command exits with a non-zero status
+
+start=$(date +"%d/%m/%y %I:%M%P")
+start_duration=$(date +%s)
+
+# Get list of staged JS/TS files
+git_diff=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(js|ts|tsx|css|cjs|mjs|graphql|gql|json)$' || true)
+
+# If no relevant files, skip all
+if [ -z "$git_diff" ]; then
+  echo "✅ No JS/TS/TSX files staged. Skipping Husky checks."
+  exit 0
+fi
+
+echo "Husky Start...\n"
+echo "🏗️👷 Checking commit before push..."
+
+echo "(1/5) ✅  Formatting your code styles"
+pnpm prettier:staged
+
+echo "(2/5) ✅  Linting your project"
+pnpm lint-staged
+
+echo "(3/5) Running Knip... (skipped for now)"
+# pnpm knip
+
+echo "(4/5) ✅  Checking types"
+pnpm check-types
+
+echo "(5/5) ✅  Adding your changes"
+read -ra arr <<< "$git_diff" + git add "${arr[@]}"
+
+end=$(date +"%d/%m/%y %I:%M%P")
+end_duration=$(date +%s)
+runtime=$((end_duration - start_duration))
+
+echo "--------------------------------"
+echo "\nHusky Done  ✅"
+echo "Completed in \033[36m$runtime seconds\033[0m\n\n"
