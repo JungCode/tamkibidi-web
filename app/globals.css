@@ -1,8 +1,16 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0b0e14;
+  --foreground: #eef1fb;
+  --surface: #11161f;
+  --surface-soft: #161c28;
+  --surface-strong: #1d2331;
+  --brand-primary: #6f79ff;
+  --brand-primary-soft: #9097ff;
+  --brand-accent: #ffb786;
+  --muted: #a4acc3;
+  --line: rgba(255, 255, 255, 0.1);
 }
 
 @theme inline {
@@ -10,17 +18,118 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-surface: var(--surface);
+  --color-surface-soft: var(--surface-soft);
+  --color-surface-strong: var(--surface-strong);
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-primary-soft: var(--brand-primary-soft);
+  --color-brand-accent: var(--brand-accent);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.landing-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-position: center;
+  background-size: 40px 40px;
+}
+
+.landing-glow {
+  animation: glow-pulse 8s ease-in-out infinite;
+}
+
+.landing-float {
+  animation: float 7s ease-in-out infinite;
+}
+
+.landing-marquee {
+  animation: marquee 18s linear infinite;
+}
+
+.landing-bar {
+  transform-origin: bottom;
+  animation: bar-rise 1.4s ease forwards;
+}
+
+.landing-bar-delay-1 {
+  animation-delay: 0.1s;
+}
+
+.landing-bar-delay-2 {
+  animation-delay: 0.2s;
+}
+
+.landing-bar-delay-3 {
+  animation-delay: 0.3s;
+}
+
+.landing-bar-delay-4 {
+  animation-delay: 0.4s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.7;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes bar-rise {
+  from {
+    opacity: 0;
+    transform: scaleY(0.35);
+  }
+
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+  }
 }

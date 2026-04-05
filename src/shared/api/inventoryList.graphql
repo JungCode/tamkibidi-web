@@ -1,0 +1,17 @@
+query InventoryList($page: Int!, $limit: Int!) {
+  inventoryList(page: $page, limit: $limit) {
+    items {
+      id
+      createdAt
+      updatedAt
+      assetType
+      minThreshold
+      quantity
+    }
+    meta {
+      total
+      page
+      limit
+    }
+  }
+}

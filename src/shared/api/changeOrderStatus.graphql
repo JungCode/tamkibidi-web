@@ -1,0 +1,11 @@
+mutation ChangeOrderStatus($input: ChangeOrderStatusInput!) {
+  changeOrderStatus(input: $input) {
+    id
+    createdAt
+    updatedAt
+    userId
+    exchangeRateId
+    quantity
+    status
+  }
+}

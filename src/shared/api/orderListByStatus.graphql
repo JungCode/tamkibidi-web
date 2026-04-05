@@ -1,0 +1,22 @@
+query OrderListByStatus(
+  $input: OrdersByStatusInput!
+  $page: Int!
+  $limit: Int!
+) {
+  orderListByStatus(input: $input, page: $page, limit: $limit) {
+    items {
+      id
+      createdAt
+      updatedAt
+      userId
+      exchangeRateId
+      quantity
+      status
+    }
+    meta {
+      total
+      page
+      limit
+    }
+  }
+}

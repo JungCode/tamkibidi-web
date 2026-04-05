@@ -1,0 +1,10 @@
+mutation EditInventoryById($input: UpdateInventoryInput!) {
+  editInventoryById(input: $input) {
+    id
+    createdAt
+    updatedAt
+    assetType
+    minThreshold
+    quantity
+  }
+}

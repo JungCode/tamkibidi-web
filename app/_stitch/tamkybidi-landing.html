@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tamkybidi | Gaming Asset Exchange</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error-container": "#ffdad6",
+                      "on-tertiary-fixed": "#311300",
+                      "surface": "#111318",
+                      "on-error": "#690005",
+                      "background": "#111318",
+                      "outline-variant": "#454655",
+                      "secondary-fixed": "#dee3ec",
+                      "surface-container": "#1d2024",
+                      "primary-fixed": "#e0e0ff",
+                      "on-surface-variant": "#c6c5d7",
+                      "tertiary-fixed-dim": "#ffb689",
+                      "inverse-primary": "#3f4cda",
+                      "primary": "#bec2ff",
+                      "on-tertiary-fixed-variant": "#743500",
+                      "surface-tint": "#bec2ff",
+                      "primary-fixed-dim": "#bec2ff",
+                      "secondary-fixed-dim": "#c2c7d0",
+                      "error": "#ffb4ab",
+                      "on-surface": "#e2e2e8",
+                      "surface-bright": "#37393e",
+                      "on-background": "#e2e2e8",
+                      "surface-container-highest": "#33353a",
+                      "on-tertiary-container": "#fffdff",
+                      "tertiary-container": "#bb5a00",
+                      "surface-container-high": "#282a2f",
+                      "outline": "#8f8fa0",
+                      "error-container": "#93000a",
+                      "surface-container-low": "#191c20",
+                      "inverse-surface": "#e2e2e8",
+                      "inverse-on-surface": "#2e3035",
+                      "on-secondary": "#2c3138",
+                      "tertiary-fixed": "#ffdbc8",
+                      "on-primary-container": "#fffdff",
+                      "on-primary-fixed-variant": "#222fc2",
+                      "on-primary-fixed": "#000569",
+                      "secondary": "#c2c7d0",
+                      "primary-container": "#5865f2",
+                      "on-secondary-fixed": "#171c23",
+                      "surface-container-lowest": "#0c0e13",
+                      "surface-variant": "#33353a",
+                      "secondary-container": "#42474f",
+                      "on-secondary-container": "#b1b5be",
+                      "on-primary": "#000da4",
+                      "on-secondary-fixed-variant": "#42474f",
+                      "tertiary": "#ffb689",
+                      "on-tertiary": "#512300",
+                      "surface-dim": "#111318"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Inter"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #111318; color: #e2e2e8; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel { background: rgba(29, 32, 36, 0.7); backdrop-filter: blur(24px); }
+      </style>
+</head>
+<body class="antialiased overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="w-full top-0 sticky z-50 bg-[#191c20]">
+<div class="flex justify-between items-center h-20 px-8 max-w-full mx-auto">
+<div class="flex items-center gap-2">
+<span class="text-2xl font-black tracking-tighter text-[#e2e2e8]">Tamkybidi</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-['Inter'] font-medium text-[0.875rem] tracking-tight text-[#bec2ff] font-bold border-b-2 border-[#5865f2] pb-1" href="#">Marketplace</a>
+<a class="font-['Inter'] font-medium text-[0.875rem] tracking-tight text-[#c6c5d7] hover:text-[#e2e2e8] transition-colors" href="#">Game Assets</a>
+<a class="font-['Inter'] font-medium text-[0.875rem] tracking-tight text-[#c6c5d7] hover:text-[#e2e2e8] transition-colors" href="#">Sovereign Tier</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="bg-[#5865f2] text-[#fffdff] font-['Inter'] font-medium text-[0.875rem] px-6 py-2.5 rounded-lg active:scale-95 transition-all hover:bg-[#bec2ff] hover:text-[#000569]">
+                    Get Started
+                </button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative pt-24 pb-32 px-8 overflow-hidden">
+<!-- Background Glow -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary-container/10 blur-[120px] rounded-full -z-10"></div>
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="space-y-8">
+<img alt="Tamkybidi Logo" class="h-24 w-auto" src="https://lh3.googleusercontent.com/aida/ADBb0uiQVRJlDBHoG0ulzcP75dEIPFbhp5ieDd36pU45FfysLxcAznaogKsMnh1688AhqdnCHj_4Uq2FaXauhh5ExoczeBqmkaj2-rWOJEjIrxVut2LV91sr3piiVAvs93CUsqc_ycPV7WdPywZlLNJY0aKsdZaWprToi5mm3doBPvOxeDMUK5AkeuBOz2BzZKB8VIuKQNR9fQwhmstaLT9D9Ovt7XcPc4AMMHDGzWR297hWktOzj7bRM6mc_B6eQ_ly2gytZT3NBrc_JQ"/>
+<h1 class="text-6xl md:text-7xl font-extrabold tracking-tight text-on-surface leading-[1.1]">
+                        The Ultimate Bridge Between <span class="text-primary">Game Assets</span> and Reality.
+                    </h1>
+<p class="text-xl text-on-surface-variant max-w-lg leading-relaxed">
+                        Tamkybidi is the most secure way to buy, sell, and exchange in-game currency like SKELY and rare items for real-world money.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-primary-container text-on-primary-container px-8 py-4 rounded-xl font-bold text-lg hover:bg-primary transition-all shadow-xl shadow-primary-container/20">
+                            Start Trading Items
+                        </button>
+<button class="bg-surface-container-high text-on-surface px-8 py-4 rounded-xl font-bold text-lg hover:bg-surface-bright transition-all">
+                            Enter Marketplace
+                        </button>
+</div>
+</div>
+<div class="relative">
+<div class="absolute -inset-1 bg-gradient-to-tr from-primary-container to-tertiary-fixed-dim opacity-20 blur-2xl rounded-[2rem]"></div>
+<div class="relative bg-surface-container p-4 rounded-[2rem] border border-outline-variant/20 shadow-2xl overflow-hidden">
+<img alt="Tamkybidi Dashboard Preview" class="rounded-xl w-full" data-alt="Sophisticated dark mode trading dashboard showing candlestick charts, order books, and real-time asset data in a clean editorial layout" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAB1eamuSy62NjUiAi45MJyLNPv52ty4Kmj5_D7jQd8F65tU7-wBRtjXSTtbVgrfNrtHy4NseoqV-q9ac4Drczk4mo1Zh9Oea7X4c27GapB5H9mXpiLkL5AEYhSEpRGosLGgIrUTXwzrtfYJ4yQB-YD8jg0NCHuHPaC8srbLyv1Jln8yJ0lJd9nxfrfrb0Z_fkAbFioO9WDsfcEuhyO_tfYV6Czj47ELGILOrN-DJUB7jKPJYJsDeQlEQLSUtMmIQoWMmfWw-XV3MYB"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Gaming Economy Section -->
+<section class="py-24 px-8 bg-surface-container-low">
+<div class="max-w-7xl mx-auto">
+<div class="mb-16">
+<h2 class="text-4xl font-bold tracking-tight text-on-surface mb-4">Gaming Economy Insights</h2>
+<p class="text-on-surface-variant text-lg">Track the real-world value of your digital victories.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Live Rates (Large) -->
+<div class="md:col-span-8 bg-surface-container p-10 rounded-[1.5rem] flex flex-col justify-between group hover:bg-surface-container-high transition-all">
+<div class="space-y-4">
+<div class="w-12 h-12 bg-primary-container/20 rounded-xl flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">monitoring</span>
+</div>
+<h3 class="text-3xl font-bold">Live Currency Rates</h3>
+<p class="text-on-surface-variant max-w-md text-lg">Monitor fluctuations for SKELY, MONEY, and other major in-game currencies against global benchmarks in real-time.</p>
+</div>
+<div class="mt-12 h-32 w-full bg-surface-container-lowest/50 rounded-xl flex items-end px-4 py-4 gap-2">
+<div class="flex-1 bg-primary-container/40 rounded-t-lg h-[40%] group-hover:h-[60%] transition-all duration-700"></div>
+<div class="flex-1 bg-primary-container/60 rounded-t-lg h-[70%] group-hover:h-[90%] transition-all duration-700 delay-100"></div>
+<div class="flex-1 bg-primary-container/40 rounded-t-lg h-[50%] group-hover:h-[75%] transition-all duration-700 delay-200"></div>
+<div class="flex-1 bg-primary-container/80 rounded-t-lg h-[85%] group-hover:h-[95%] transition-all duration-700 delay-300"></div>
+<div class="flex-1 bg-primary-container/50 rounded-t-lg h-[60%] group-hover:h-[80%] transition-all duration-700 delay-400"></div>
+</div>
+</div>
+<!-- Active Listings (Square) -->
+<div class="md:col-span-4 bg-surface-container-high p-8 rounded-[1.5rem] flex flex-col gap-6">
+<div class="w-12 h-12 bg-tertiary-container/20 rounded-xl flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-3xl">inventory_2</span>
+</div>
+<h3 class="text-2xl font-bold">Item Inventory</h3>
+<p class="text-on-surface-variant text-base">Quickly list and manage your rare game items. Our 2x2 dashboard keeps your high-value assets at your fingertips.</p>
+<div class="grid grid-cols-2 gap-3 mt-auto">
+<div class="aspect-square bg-surface-container rounded-lg border border-outline-variant/10 flex items-center justify-center text-on-surface-variant/20"><span class="material-symbols-outlined">shield</span></div>
+<div class="aspect-square bg-primary-container/20 rounded-lg border border-primary-container/30 flex items-center justify-center text-primary"><span class="material-symbols-outlined">swords</span></div>
+<div class="aspect-square bg-surface-container rounded-lg border border-outline-variant/10 flex items-center justify-center text-on-surface-variant/20"><span class="material-symbols-outlined">diamond</span></div>
+<div class="aspect-square bg-surface-container rounded-lg border border-outline-variant/10 flex items-center justify-center text-on-surface-variant/20"><span class="material-symbols-outlined">auto_fix_high</span></div>
+</div>
+</div>
+<!-- Exchange Queue (Full Width) -->
+<div class="md:col-span-12 bg-surface-container p-8 rounded-[1.5rem] flex flex-col md:flex-row items-center gap-8 border border-outline-variant/5">
+<div class="flex-1 space-y-4">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-secondary-container rounded-lg flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">currency_exchange</span>
+</div>
+<h3 class="text-2xl font-bold">Exchange Queue</h3>
+</div>
+<p class="text-on-surface-variant text-lg">Instant real-world exchange for your earned game loot. Our smart-queue ensures you get the best price during peak gaming hours.</p>
+</div>
+<div class="flex-1 w-full space-y-3">
+<div class="h-12 bg-surface-container-lowest rounded-xl flex items-center px-6 justify-between opacity-40">
+<span class="text-xs font-mono">0x4F...E291 (Legendary Sword)</span>
+<span class="text-xs text-primary">$450.00 USD</span>
+</div>
+<div class="h-12 bg-surface-container-lowest rounded-xl flex items-center px-6 justify-between">
+<span class="text-xs font-mono">0xA3...C110 (50k SKELY)</span>
+<span class="text-xs text-primary">$125.50 USD</span>
+</div>
+<div class="h-12 bg-surface-container-lowest rounded-xl flex items-center px-6 justify-between opacity-60">
+<span class="text-xs font-mono">0xBC...D884 (Epic Armor Set)</span>
+<span class="text-xs text-primary">$89.99 USD</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="py-32 px-8">
+<div class="max-w-4xl mx-auto text-center space-y-10">
+<span class="text-primary font-bold tracking-[0.2em] uppercase text-sm">Sovereign Tier Security</span>
+<h2 class="text-5xl md:text-6xl font-black tracking-tight text-on-surface">Powering the Gamer Economy.</h2>
+<p class="text-xl text-on-surface-variant leading-relaxed">
+                    Tamkybidi is the foundation for the next generation of gaming wealth. Our "Sovereign Tier" architecture provides professional-grade security for gamers and traders alike, ensuring that your hard-earned game items and currencies are always under your control during real-world exchange. We are built for the community, ensuring every trade is fast, fair, and secure.
+                </p>
+<div class="pt-8">
+<div class="inline-flex items-center gap-2 px-6 py-3 bg-surface-container-high rounded-full text-on-surface-variant text-sm font-medium">
+<span class="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+                        Trusted by 500k+ Active Traders
+                    </div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-24 px-8 relative">
+<div class="max-w-6xl mx-auto bg-primary-container rounded-[2.5rem] p-12 md:p-24 overflow-hidden relative group">
+<!-- Abstract Glows -->
+<div class="absolute -top-24 -right-24 w-96 h-96 bg-primary blur-[100px] rounded-full opacity-40 group-hover:scale-110 transition-transform duration-1000"></div>
+<div class="absolute -bottom-24 -left-24 w-96 h-96 bg-tertiary blur-[100px] rounded-full opacity-30 group-hover:scale-110 transition-transform duration-1000"></div>
+<div class="relative z-10 text-center space-y-10">
+<h2 class="text-4xl md:text-6xl font-bold text-on-primary-container tracking-tight">Join the Tamkybidi Gamer Economy Today.</h2>
+<p class="text-primary-fixed text-lg md:text-xl max-w-2xl mx-auto opacity-90">
+                        Secure your place in the most intuitive asset trading ecosystem. Your journey from game loot to real value starts here.
+                    </p>
+<div>
+<button class="bg-on-surface text-surface px-10 py-5 rounded-2xl font-black text-xl hover:scale-105 active:scale-95 transition-all shadow-2xl">
+                            Start Trading Items
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-8 bg-[#111318] border-t border-[#454655]/20">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6 max-w-7xl mx-auto">
+<div class="flex flex-col gap-2 items-center md:items-start">
+<span class="text-lg font-bold text-[#e2e2e8]">Tamkybidi</span>
+<p class="font-['Inter'] text-[0.6875rem] uppercase tracking-widest text-[#c6c5d7]">© 2024 Tamkybidi Gaming Exchange. All rights reserved.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-['Inter'] text-[0.6875rem] uppercase tracking-widest text-[#c6c5d7] hover:text-[#5865f2] transition-colors" href="#">Terms of Service</a>
+<a class="font-['Inter'] text-[0.6875rem] uppercase tracking-widest text-[#c6c5d7] hover:text-[#5865f2] transition-colors" href="#">Privacy Policy</a>
+<a class="font-['Inter'] text-[0.6875rem] uppercase tracking-widest text-[#c6c5d7] hover:text-[#5865f2] transition-colors" href="#">Game Partners</a>
+<a class="font-['Inter'] text-[0.6875rem] uppercase tracking-widest text-[#c6c5d7] hover:text-[#5865f2] transition-colors" href="#">Support</a>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,19 @@
+query ExchangeRateList($page: Int!, $limit: Int!) {
+  exchangeRateList(page: $page, limit: $limit) {
+    items {
+      id
+      createdAt
+      updatedAt
+      assetType
+      actionType
+      baseUnit
+      currencyCode
+      exchangeRate
+    }
+    meta {
+      total
+      page
+      limit
+    }
+  }
+}

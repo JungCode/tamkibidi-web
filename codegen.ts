@@ -62,7 +62,7 @@ const config: CodegenConfig = {
         withResultType: false, // Skip generating *QueryHookResult and *QueryResult types
       },
       hooks: {
-        afterOneFileWrite: ['node scripts/fix-apollo-react-types.js', 'eslint --fix', 'prettier --write'],
+        afterOneFileWrite: ['node scripts/fix-apollo-react-types.js', 'prettier --write'],
       },
       plugins: ['typescript-operations', 'typescript-react-apollo'],
       preset: 'near-operation-file',

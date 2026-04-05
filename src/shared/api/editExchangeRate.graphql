@@ -1,0 +1,12 @@
+mutation EditExchangeRate($input: UpdateExchangeRateInput!) {
+  editExchangeRate(input: $input) {
+    id
+    createdAt
+    updatedAt
+    assetType
+    actionType
+    baseUnit
+    currencyCode
+    exchangeRate
+  }
+}
