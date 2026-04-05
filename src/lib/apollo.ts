@@ -27,7 +27,6 @@ const authLink = new ApolloLink((operation, forward) => {
       ({ headers = {} }: { headers?: Record<string, string> }) => ({
         headers: {
           ...headers,
-          'apollo-require-preflight': 'true',
           Authorization: `Bearer ${token}`,
         },
       }),
@@ -70,6 +69,9 @@ export function getApolloClient(): ApolloClient {
       errorLink,
       authLink,
       new HttpLink({
+        headers: {
+          'apollo-require-preflight': 'true',
+        },
         uri: process.env.NEXT_PUBLIC_GRAPHQL_URL ?? '/graphql',
       }),
     ]),
