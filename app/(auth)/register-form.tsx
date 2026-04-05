@@ -2,9 +2,11 @@
 
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { toast } from 'sonner';
 
+import { useAuth } from '../../src/lib/auth-context';
+import { tokens } from '../../src/lib/tokens';
 import { useRegisterMutation } from '../../src/shared/register.schemas';
-import { Alert, AlertDescription } from '../components/ui/alert';
 import { Button } from '../components/ui/button';
 import {
   Card,
@@ -14,26 +16,33 @@ import {
 } from '../components/ui/card';
 import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
-import { tokens } from '../lib/tokens';
 
 export function RegisterForm() {
   const router = useRouter();
+  const { refreshAuth } = useAuth();
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [registerMutation, { error, loading }] = useRegisterMutation();
+  const [registerMutation, { loading }] = useRegisterMutation();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const result = await registerMutation({
-      variables: { input: { email, password, userName } },
-    });
-    if (result.data?.register) {
-      tokens.set(
-        result.data.register.accessToken,
-        result.data.register.refreshToken,
-      );
-      router.push('/');
+    try {
+      const result = await registerMutation({
+        variables: { input: { email, password, userName } },
+      });
+      if (result.data?.register) {
+        tokens.set(
+          result.data.register.accessToken,
+          result.data.register.refreshToken,
+        );
+        refreshAuth();
+        toast.success('Account created! Welcome to Tamkybidi.');
+        router.push('/dashboard');
+      }
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'Registration failed';
+      toast.error(msg);
     }
   }
 
@@ -54,12 +63,6 @@ export function RegisterForm() {
 
         <CardContent>
           <form className="space-y-5" onSubmit={handleSubmit}>
-            {error && (
-              <Alert variant="destructive">
-                <AlertDescription>{error.message}</AlertDescription>
-              </Alert>
-            )}
-
             <div className="space-y-1.5">
               <Label htmlFor="reg-username">Username</Label>
               <Input

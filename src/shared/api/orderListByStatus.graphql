@@ -9,6 +9,9 @@ query OrderListByStatus(
       createdAt
       updatedAt
       userId
+      user {
+        userName
+      }
       exchangeRateId
       quantity
       status

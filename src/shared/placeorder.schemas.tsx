@@ -8,7 +8,7 @@ export type PlaceOrderMutationVariables = SchemaTypes.Exact<{
 }>;
 
 
-export type PlaceOrderMutation = { __typename?: 'Mutation', placeOrder: { __typename?: 'Order', createdAt: string, exchangeRateId: string, id: string, quantity: string, status: SchemaTypes.OrderStatus; updatedAt: string, userId: string, } };
+export type PlaceOrderMutation = { __typename?: 'Mutation', placeOrder: { __typename?: 'Order', createdAt: string, exchangeRateId: string, id: string, quantity: string, status: SchemaTypes.OrderStatus, updatedAt: string, user?: { __typename?: 'User', userName: string } | null; userId: string, } };
 
 
 export const PlaceOrderDocument = gql`
@@ -21,6 +21,9 @@ export const PlaceOrderDocument = gql`
     exchangeRateId
     quantity
     status
+    user {
+      userName
+    }
   }
 }
     `;

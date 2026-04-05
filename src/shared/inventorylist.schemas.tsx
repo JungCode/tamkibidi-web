@@ -9,7 +9,7 @@ export type InventoryListQueryVariables = SchemaTypes.Exact<{
 }>;
 
 
-export type InventoryListQuery = { __typename?: 'Query', inventoryList: { __typename?: 'InventoryList', items: Array<{ __typename?: 'Inventory', assetType: SchemaTypes.AssetType, createdAt: string, id: string, minThreshold: string, quantity: string; updatedAt: string, }>, meta: { __typename?: 'BaseMeta', limit?: number | null; page?: number | null, total: number, } } };
+export type InventoryListQuery = { __typename?: 'Query', inventoryList: { __typename?: 'InventoryList', items: Array<{ __typename?: 'Inventory', assetType: SchemaTypes.AssetType, createdAt: string, id: string, minThreshold: string, quantity: string; updatedAt: string, }>, meta: { __typename?: 'PaginationMeta', limit: number; page: number, total: number, } } };
 
 
 export const InventoryListDocument = gql`

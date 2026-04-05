@@ -65,6 +65,9 @@ export const metadata: Metadata = {
     images: [siteConfig.ogImage],
     title: siteConfig.title,
   },
+  verification: {
+    google: 'xV6ib9uCh0tpi3DctM5PXQH97r4kN0uhA99R3z7q67w',
+  },
 };
 
 export default function RootLayout({

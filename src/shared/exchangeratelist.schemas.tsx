@@ -9,7 +9,7 @@ export type ExchangeRateListQueryVariables = SchemaTypes.Exact<{
 }>;
 
 
-export type ExchangeRateListQuery = { __typename?: 'Query', exchangeRateList: { __typename?: 'ExchangeRateList', items: Array<{ __typename?: 'ExchangeRate', actionType: SchemaTypes.ActionType, assetType: SchemaTypes.AssetType, baseUnit: string, createdAt: string, currencyCode: string, exchangeRate: string; id: string, updatedAt: string, }>, meta: { __typename?: 'BaseMeta', limit?: number | null; page?: number | null, total: number, } } };
+export type ExchangeRateListQuery = { __typename?: 'Query', exchangeRateList: { __typename?: 'ExchangeRateList', items: Array<{ __typename?: 'ExchangeRate', actionType: SchemaTypes.ActionType, assetType: SchemaTypes.AssetType, baseUnit: string, createdAt: string, currencyCode: string, exchangeRate: string; id: string, updatedAt: string, }>, meta: { __typename?: 'PaginationMeta', limit: number; page: number, total: number, } } };
 
 
 export const ExchangeRateListDocument = gql`

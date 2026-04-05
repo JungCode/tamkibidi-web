@@ -10,7 +10,7 @@ export type OrderListByStatusQueryVariables = SchemaTypes.Exact<{
 }>;
 
 
-export type OrderListByStatusQuery = { __typename?: 'Query', orderListByStatus: { __typename?: 'OrderList', items: Array<{ __typename?: 'Order', createdAt: string, exchangeRateId: string, id: string, quantity: string, status: SchemaTypes.OrderStatus; updatedAt: string, userId: string, }>, meta: { __typename?: 'BaseMeta', limit?: number | null; page?: number | null, total: number, } } };
+export type OrderListByStatusQuery = { __typename?: 'Query', orderListByStatus: { __typename?: 'OrderList', items: Array<{ __typename?: 'Order', createdAt: string, exchangeRateId: string, id: string, quantity: string, status: SchemaTypes.OrderStatus, updatedAt: string, user?: { __typename?: 'User', userName: string } | null; userId: string, }>, meta: { __typename?: 'PaginationMeta', limit: number; page: number, total: number, } } };
 
 
 export const OrderListByStatusDocument = gql`
@@ -21,6 +21,9 @@ export const OrderListByStatusDocument = gql`
       createdAt
       updatedAt
       userId
+      user {
+        userName
+      }
       exchangeRateId
       quantity
       status

@@ -2,9 +2,11 @@
 
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { toast } from 'sonner';
 
+import { useAuth } from '../../src/lib/auth-context';
+import { tokens } from '../../src/lib/tokens';
 import { useLoginMutation } from '../../src/shared/login.schemas';
-import { Alert, AlertDescription } from '../components/ui/alert';
 import { Button } from '../components/ui/button';
 import {
   Card,
@@ -14,22 +16,32 @@ import {
 } from '../components/ui/card';
 import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
-import { tokens } from '../lib/tokens';
 
 export function LoginForm() {
   const router = useRouter();
+  const { refreshAuth } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loginMutation, { error, loading }] = useLoginMutation();
+  const [loginMutation, { loading }] = useLoginMutation();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const result = await loginMutation({
-      variables: { input: { email, password } },
-    });
-    if (result.data?.login) {
-      tokens.set(result.data.login.accessToken, result.data.login.refreshToken);
-      router.push('/');
+    try {
+      const result = await loginMutation({
+        variables: { input: { email, password } },
+      });
+      if (result.data?.login) {
+        tokens.set(
+          result.data.login.accessToken,
+          result.data.login.refreshToken,
+        );
+        refreshAuth();
+        toast.success('Welcome back!');
+        router.push('/dashboard');
+      }
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'Login failed';
+      toast.error(msg);
     }
   }
 
@@ -49,12 +61,6 @@ export function LoginForm() {
 
         <CardContent>
           <form className="space-y-5" onSubmit={handleSubmit}>
-            {error && (
-              <Alert variant="destructive">
-                <AlertDescription>{error.message}</AlertDescription>
-              </Alert>
-            )}
-
             <div className="space-y-1.5">
               <Label htmlFor="login-email">Email address</Label>
               <Input

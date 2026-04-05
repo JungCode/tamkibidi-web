@@ -19,9 +19,6 @@ export type Incremental<T> =
       [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never;
     };
 
- 
- 
-
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   Boolean: { input: boolean; output: boolean };
@@ -66,6 +63,10 @@ export type OrdersByStatusInput = {
 export type PlaceOrderInput = {
   exchangeRateId: Scalars['String']['input'];
   quantity: Scalars['String']['input'];
+};
+
+export type RefreshTokenInput = {
+  refreshToken: Scalars['String']['input'];
 };
 
 export type RegisterInput = {
