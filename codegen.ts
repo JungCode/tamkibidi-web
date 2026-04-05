@@ -5,7 +5,7 @@ dotenvConfig();
 
 const entity = process.argv[process.argv.length - 1];
 
-const ENDPOINT = process.env.VITE_API_CONFIG_ENDPOINT;
+const ENDPOINT = process.env.NEXT_PUBLIC_GRAPHQL_URL;
 
 const baseGeneratedTypes = "src/shared/api/schemas.tsx";
 

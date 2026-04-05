@@ -124,7 +124,7 @@ export default function Home() {
 
           <a
             className="rounded-full bg-[#6f79ff] px-5 py-2.5 text-sm font-semibold text-[#050816] transition hover:bg-[#9097ff]"
-            href="#cta"
+            href="/register"
           >
             Get started
           </a>
@@ -154,13 +154,13 @@ export default function Home() {
             <div className="flex flex-col gap-4 sm:flex-row">
               <a
                 className="inline-flex items-center justify-center rounded-2xl bg-[#6f79ff] px-7 py-4 text-base font-bold text-[#050816] shadow-[0_24px_60px_rgba(111,121,255,0.28)] transition hover:-translate-y-0.5 hover:bg-[#9097ff]"
-                href="#cta"
+                href="/register"
               >
                 Start trading items
               </a>
               <a
                 className="inline-flex items-center justify-center rounded-2xl border border-white/12 bg-white/5 px-7 py-4 text-base font-semibold text-white transition hover:border-white/20 hover:bg-white/8"
-                href="#marketplace"
+                href="/login"
               >
                 Enter marketplace
               </a>
@@ -391,7 +391,7 @@ export default function Home() {
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
                 className="inline-flex items-center justify-center rounded-2xl bg-[#050816] px-7 py-4 text-base font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#11161f]"
-                href="mailto:trade@tamkybidi.com"
+                href="/register"
               >
                 Start trading now
               </a>

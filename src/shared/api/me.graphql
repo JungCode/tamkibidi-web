@@ -1,0 +1,10 @@
+query ExampleQuery {
+  me {
+    id
+    createdAt
+    updatedAt
+    userName
+    email
+    role
+  }
+}
