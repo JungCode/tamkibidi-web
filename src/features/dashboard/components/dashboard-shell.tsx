@@ -1,15 +1,6 @@
 'use client';
 
-import {
-  BarChart3,
-  HelpCircle,
-  History,
-  LayoutDashboard,
-  LogOut,
-  Settings,
-  Shield,
-  TrendingUp,
-} from 'lucide-react';
+import { BarChart3, LayoutDashboard, LogOut } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { toast } from 'sonner';
