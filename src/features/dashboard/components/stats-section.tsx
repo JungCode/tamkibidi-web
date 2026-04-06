@@ -1,11 +1,11 @@
 'use client';
 
-import { ActionType, AssetType } from '../../../src/shared/api/schemas';
-import { useExchangeRateListQuery } from '../../../src/shared/exchangeratelist.schemas';
-import { useInventoryListQuery } from '../../../src/shared/inventorylist.schemas';
-import { fmtCompactNum, fmtRate, toMoneyInMillions } from '../_utils/format';
-import { EditExchangeRateButton } from '../edit-exchange-rate-button';
-import { EditInventoryButton } from '../edit-inventory-button';
+import { ActionType, AssetType } from '../../../shared/api/schemas';
+import { useExchangeRateListQuery } from '../../../shared/exchangeratelist.schemas';
+import { useInventoryListQuery } from '../../../shared/inventorylist.schemas';
+import { fmtCompactNum, fmtRate, toMoneyInMillions } from '../utils/format';
+import { EditExchangeRateButton } from './edit-exchange-rate-button';
+import { EditInventoryButton } from './edit-inventory-button';
 import { CardSkeleton, StatCard } from './stat-card';
 
 export function StatsSection() {

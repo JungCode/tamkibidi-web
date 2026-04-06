@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { AuthTabSwitch } from './auth-tab-switch';
+import { AuthTabSwitch } from '../../src/features/auth/components/auth-tab-switch';
 
 export default function AuthLayout({
   children,

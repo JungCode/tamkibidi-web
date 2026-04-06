@@ -4,21 +4,21 @@ import { Pencil } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
 
-import { useIsAdmin } from '../../src/lib/auth-context';
-import { AssetType } from '../../src/shared/api/schemas';
-import { useEditInventoryByIdMutation } from '../../src/shared/editinventorybyid.schemas';
-import { InventoryListDocument } from '../../src/shared/inventorylist.schemas';
-import { Button } from '../components/ui/button';
+import { useIsAdmin } from '../../../lib/auth-context';
+import { AssetType } from '../../../shared/api/schemas';
+import { useEditInventoryByIdMutation } from '../../../shared/editinventorybyid.schemas';
+import { InventoryListDocument } from '../../../shared/inventorylist.schemas';
+import { Button } from '../../../shared/components/ui/button';
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '../components/ui/dialog';
-import { Input } from '../components/ui/input';
-import { Label } from '../components/ui/label';
-import { trimZeroDecimals } from './_utils/format';
+} from '../../../shared/components/ui/dialog';
+import { Input } from '../../../shared/components/ui/input';
+import { Label } from '../../../shared/components/ui/label';
+import { trimZeroDecimals } from '../utils/format';
 
 interface InventoryItem {
   assetType: AssetType;

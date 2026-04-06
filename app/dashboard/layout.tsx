@@ -1,5 +1,5 @@
-import { AuthGuard } from './auth-guard';
-import { DashboardShell } from './dashboard-shell';
+import { DashboardShell } from '../../src/features/dashboard/components/dashboard-shell';
+import { AuthGuard } from '../../src/shared/components/guard/auth-guard';
 
 export default function DashboardLayout({
   children,

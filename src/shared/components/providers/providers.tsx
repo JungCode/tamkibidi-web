@@ -3,8 +3,8 @@
 import { ApolloProvider } from '@apollo/client/react';
 import { Toaster } from 'sonner';
 
-import { getApolloClient } from '../src/lib/apollo';
-import { AuthProvider } from '../src/lib/auth-context';
+import { getApolloClient } from '../../../lib/apollo';
+import { AuthProvider } from '../../../lib/auth-context';
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (

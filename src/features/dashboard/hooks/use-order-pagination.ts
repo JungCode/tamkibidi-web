@@ -2,8 +2,8 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-import { OrderStatus } from '../../../src/shared/api/schemas';
-import { useOrderListByStatusQuery } from '../../../src/shared/orderlistbystatus.schemas';
+import { OrderStatus } from '../../../shared/api/schemas';
+import { useOrderListByStatusQuery } from '../../../shared/orderlistbystatus.schemas';
 
 export const ORDER_LIMIT = 4;
 
@@ -124,7 +124,7 @@ export function useOrderPagination(status: OrderStatus) {
             setExtra((prev) => ({ ...prev, isFetchingMore: false }));
           });
       },
-      { root, rootMargin: '200px' },
+      { root, rootMargin: '0px' },
     );
 
     observer.observe(sentinel);

@@ -4,21 +4,21 @@ import { Pencil } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
 
-import { useIsAdmin } from '../../src/lib/auth-context';
-import { ActionType, AssetType } from '../../src/shared/api/schemas';
-import { useEditExchangeRateMutation } from '../../src/shared/editexchangerate.schemas';
-import { ExchangeRateListDocument } from '../../src/shared/exchangeratelist.schemas';
-import { Button } from '../components/ui/button';
+import { useIsAdmin } from '../../../lib/auth-context';
+import { ActionType, AssetType } from '../../../shared/api/schemas';
+import { useEditExchangeRateMutation } from '../../../shared/editexchangerate.schemas';
+import { ExchangeRateListDocument } from '../../../shared/exchangeratelist.schemas';
+import { Button } from '../../../shared/components/ui/button';
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '../components/ui/dialog';
-import { Input } from '../components/ui/input';
-import { Label } from '../components/ui/label';
-import { trimZeroDecimals } from './_utils/format';
+} from '../../../shared/components/ui/dialog';
+import { Input } from '../../../shared/components/ui/input';
+import { Label } from '../../../shared/components/ui/label';
+import { trimZeroDecimals } from '../utils/format';
 
 interface ExchangeRateItem {
   actionType: ActionType;

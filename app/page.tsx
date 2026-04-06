@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 
-import { siteConfig } from './site-config';
+import { siteConfig } from '../src/common/site-config';
 
 const stats = [
   { label: 'Protected escrow volume', value: '$48.2M' },

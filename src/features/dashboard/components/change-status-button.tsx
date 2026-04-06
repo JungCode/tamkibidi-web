@@ -3,30 +3,30 @@
 import { useEffect, useRef, useState } from 'react';
 import { toast } from 'sonner';
 
-import { useIsAdmin } from '../../src/lib/auth-context';
-import { OrderStatus } from '../../src/shared/api/schemas';
-import { useChangeOrderStatusMutation } from '../../src/shared/changeorderstatus.schemas';
+import { useIsAdmin } from '../../../lib/auth-context';
+import { OrderStatus } from '../../../shared/api/schemas';
+import { useChangeOrderStatusMutation } from '../../../shared/changeorderstatus.schemas';
 import {
   OrderListByStatusDocument,
   useOrderListByStatusQuery,
-} from '../../src/shared/orderlistbystatus.schemas';
-import { Button } from '../components/ui/button';
-import { Checkbox } from '../components/ui/checkbox';
+} from '../../../shared/orderlistbystatus.schemas';
+import { Button } from '../../../shared/components/ui/button';
+import { Checkbox } from '../../../shared/components/ui/checkbox';
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '../components/ui/dialog';
-import { Label } from '../components/ui/label';
+} from '../../../shared/components/ui/dialog';
+import { Label } from '../../../shared/components/ui/label';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '../components/ui/select';
+} from '../../../shared/components/ui/select';
 
 const ALL_STATUSES = [
   OrderStatus.Active,

@@ -1,8 +1,8 @@
 'use client';
 
+import { OrderListCard } from '../../src/features/dashboard/components/order-list-card';
+import { StatsSection } from '../../src/features/dashboard/components/stats-section';
 import { OrderStatus } from '../../src/shared/api/schemas';
-import { OrderListCard } from './_components/order-list-card';
-import { StatsSection } from './_components/stats-section';
 
 export default function DashboardPage() {
   return (

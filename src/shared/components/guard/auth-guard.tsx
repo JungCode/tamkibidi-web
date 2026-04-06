@@ -3,8 +3,8 @@
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-import { useAuth } from '../../src/lib/auth-context';
-import { tokens } from '../../src/lib/tokens';
+import { useAuth } from '../../../lib/auth-context';
+import { tokens } from '../../../lib/tokens';
 
 export function AuthGuard({ children }: { children: React.ReactNode }) {
   const router = useRouter();

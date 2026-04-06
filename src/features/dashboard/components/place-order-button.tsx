@@ -6,27 +6,28 @@ import { toast } from 'sonner';
 import {
   ExchangeRateListDocument,
   useExchangeRateListQuery,
-} from '../../src/shared/exchangeratelist.schemas';
-import { InventoryListDocument } from '../../src/shared/inventorylist.schemas';
-import { OrderListByStatusDocument } from '../../src/shared/orderlistbystatus.schemas';
-import { usePlaceOrderMutation } from '../../src/shared/placeorder.schemas';
-import { Button } from '../components/ui/button';
+} from '../../../shared/exchangeratelist.schemas';
+import { InventoryListDocument } from '../../../shared/inventorylist.schemas';
+import { OrderListByStatusDocument } from '../../../shared/orderlistbystatus.schemas';
+import { usePlaceOrderMutation } from '../../../shared/placeorder.schemas';
+import { ORDER_LIMIT } from '../hooks/use-order-pagination';
+import { Button } from '../../../shared/components/ui/button';
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '../components/ui/dialog';
-import { Input } from '../components/ui/input';
-import { Label } from '../components/ui/label';
+} from '../../../shared/components/ui/dialog';
+import { Input } from '../../../shared/components/ui/input';
+import { Label } from '../../../shared/components/ui/label';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '../components/ui/select';
+} from '../../../shared/components/ui/select';
 
 interface Props {
   className?: string;
@@ -51,7 +52,7 @@ export function PlaceOrderButton({ className }: Props) {
         query: OrderListByStatusDocument,
         variables: {
           input: { status: 'ACTIVE' },
-          limit: 20,
+          limit: ORDER_LIMIT,
           page: 1,
         },
       },
@@ -59,7 +60,7 @@ export function PlaceOrderButton({ className }: Props) {
         query: OrderListByStatusDocument,
         variables: {
           input: { status: 'PENDING' },
-          limit: 20,
+          limit: ORDER_LIMIT,
           page: 1,
         },
       },
@@ -67,7 +68,7 @@ export function PlaceOrderButton({ className }: Props) {
         query: OrderListByStatusDocument,
         variables: {
           input: { status: 'COMPLETED' },
-          limit: 20,
+          limit: ORDER_LIMIT,
           page: 1,
         },
       },
@@ -119,13 +120,19 @@ export function PlaceOrderButton({ className }: Props) {
               value={exchangeRateId}
             >
               <SelectTrigger className="border-white/10 bg-[#282a2f]">
-                <SelectValue placeholder="Select rate…" />
+                <SelectValue placeholder="Select rate…">
+                  {(value: string | null) => {
+                    if (!value) return null;
+                    const rate = rates.find((r) => r.id === value);
+                    if (!rate) return value;
+                    return `${rate.assetType} ${rate.actionType}`;
+                  }}
+                </SelectValue>
               </SelectTrigger>
               <SelectContent className="border-white/10 bg-[#282a2f]">
                 {rates.map((r) => (
                   <SelectItem key={r.id} value={r.id}>
-                    {r.assetType} {r.actionType} — {r.exchangeRate}{' '}
-                    {r.currencyCode} / {r.baseUnit}
+                    {r.assetType} {r.actionType}
                   </SelectItem>
                 ))}
               </SelectContent>

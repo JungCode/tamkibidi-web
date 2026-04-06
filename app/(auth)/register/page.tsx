@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import { RegisterForm } from '../register-form';
+import { RegisterForm } from '../../../src/features/auth/components/register-form';
 
 export const metadata: Metadata = {
   description: 'Create a Tamkybidi account to start trading game assets.',

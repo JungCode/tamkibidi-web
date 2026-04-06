@@ -1,9 +1,9 @@
 'use client';
 
-import { OrderStatus } from '../../../src/shared/api/schemas';
-import { OrderItem, useOrderPagination } from '../_hooks/use-order-pagination';
-import { fmtDate, trimZeroDecimals } from '../_utils/format';
-import { ChangeStatusButton } from '../change-status-button';
+import { OrderStatus } from '../../../shared/api/schemas';
+import { OrderItem, useOrderPagination } from '../hooks/use-order-pagination';
+import { fmtDate, trimZeroDecimals } from '../utils/format';
+import { ChangeStatusButton } from './change-status-button';
 
 const EMPTY_MESSAGES: Record<OrderStatus, string> = {
   [OrderStatus.Active]: 'No active orders.',
@@ -20,6 +20,9 @@ interface OrderRowProps {
 
 function OrderRow({ isActive, order }: OrderRowProps) {
   const userName = order.user?.userName;
+  const actionName = order.exchangeRate
+    ? `${order.exchangeRate.assetType} ${order.exchangeRate.actionType}`
+    : 'N/A';
   return (
     <div
       className={`flex items-center gap-3 rounded-xl p-3 ${
@@ -47,6 +50,13 @@ function OrderRow({ isActive, order }: OrderRowProps) {
           }`}
         >
           User: {userName ?? order.userId.slice(-8)}
+        </p>
+        <p
+          className={`truncate text-xs ${
+            isActive ? 'text-emerald-100/80' : 'text-[#8f8fa0]'
+          }`}
+        >
+          Action: {actionName}
         </p>
       </div>
       <div className="text-right">
@@ -116,7 +126,7 @@ export function OrderListCard({
           ))}
         </div>
       ) : (
-        <div className="flex flex-col gap-3">
+        <div className="flex max-h-64 flex-col gap-3 overflow-y-auto">
           {items.length === 0 && (
             <p className="py-4 text-center text-sm text-[#8f8fa0]">
               {EMPTY_MESSAGES[status]}

@@ -14,23 +14,16 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 
-import { useAuth } from '../../src/lib/auth-context';
-import { tokens } from '../../src/lib/tokens';
-import { useLogoutMutation } from '../../src/shared/logout.schemas';
+import { useAuth } from '../../../lib/auth-context';
+import { tokens } from '../../../lib/tokens';
+import { useLogoutMutation } from '../../../shared/logout.schemas';
 import { PlaceOrderButton } from './place-order-button';
 
 const navItems = [
   { href: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
-  { href: '/dashboard/rates', icon: TrendingUp, label: 'Rates' },
-  { href: '/dashboard/history', icon: History, label: 'History' },
-  { href: '/dashboard/support', icon: HelpCircle, label: 'Support' },
 ];
 
-const topNavLinks = [
-  { href: '/dashboard', label: 'Market' },
-  { href: '/dashboard/rates', label: 'Exchange' },
-  { href: '/dashboard/history', label: 'Portfolio' },
-];
+const topNavLinks = [{ href: '/dashboard', label: 'Market' }];
 
 export function DashboardShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -97,14 +90,6 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
         {/* Bottom */}
         <div className="mt-auto space-y-1 border-t border-white/5 pt-6">
           <PlaceOrderButton className="mb-4 w-full" />
-
-          <Link
-            className="flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-bold tracking-widest text-[#8f8fa0] uppercase transition-all hover:bg-[#282a2f] hover:text-white"
-            href="/dashboard/security"
-          >
-            <Shield className="h-5 w-5" />
-            Security
-          </Link>
           <button
             className="flex w-full items-center gap-3 rounded-xl px-3 py-3 text-sm font-bold tracking-widest text-[#8f8fa0] uppercase transition-all hover:bg-[#282a2f] hover:text-white"
             onClick={handleLogout}
@@ -146,9 +131,6 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
           </div>
 
           <div className="flex items-center gap-3">
-            <button className="rounded-lg p-2 text-[#8f8fa0] transition-colors hover:text-white">
-              <Settings className="h-5 w-5" />
-            </button>
             <PlaceOrderButton />
             {/* Avatar */}
             <div className="ml-2 flex h-8 w-8 items-center justify-center rounded-full bg-[#33353a] text-xs font-bold ring-2 ring-[#5865f2]/20">
